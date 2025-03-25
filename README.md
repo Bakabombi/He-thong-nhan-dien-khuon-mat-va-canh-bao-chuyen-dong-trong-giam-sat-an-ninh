@@ -1,12 +1,30 @@
-# 📡 Hệ Thống Phát Hiện Chuyển Động và Nhận Diện Danh Tính
+<h1 align="center">HỆ THỐNG PHÁT HIỆN CHUYỂN ĐỘNG VÀ NHẬN DIỆN KHUÔN MẶT TRONG GIÁM SÁT AN NINH </h1>
 
-**Phát triển bởi Nhóm 4 Lớp CNTT 16-01, Khoa Công nghệ Thông tin, Đại học Đại Nam**
+<div align="center">
+
+<p align="center">
+  <img src="images/Logo_DAI_NAM.png" alt="DaiNam University Logo" width="200"/>
+  <img src="images/logoiaot.png" alt="AIoTLab Logo" width="170"/>
+</p>
+
+[![Made by AIoTLab](https://img.shields.io/badge/Made%20by%20AIoTLab-blue?style=for-the-badge)](https://www.facebook.com/DNUAIoTLab)
+[![Fit DNU](https://img.shields.io/badge/Fit%20DNU-green?style=for-the-badge)](https://fitdnu.net/)
+[![DaiNam University](https://img.shields.io/badge/DaiNam%20University-red?style=for-the-badge)](https://dainam.edu.vn)
+
+</div>
+<h2 align="center">Hệ Thống Phát Hiện Chuyển Động và Nhận Diện Khuôn Mặt</h2>
+
+**Phát triển bởi Nhóm 4 Lớp CNTT 1601, Khoa Công nghệ Thông tin, Đại học Đại Nam**
 
 ## 🔬 Tăng cường An ninh với Công nghệ Giám sát Thông minh
 
 Hệ thống thế hệ mới tích hợp phát hiện chuyển động và nhận diện danh tính, sử dụng OpenCV, YOLOv8 và DeepFace, hỗ trợ cảnh báo thời gian thực qua Telegram.
 
 ## 🏗️ Kiến trúc Hệ thống
+<p align="center">
+  <img src="https://github.com/nguyenducduy2612/Nhan_dien_KM_CD/blob/main/images/kientruchethong.png?raw=true" 
+       alt="System Architecture" width="650"/>
+</p>
 
 ### Tổng quan
 
@@ -34,7 +52,7 @@ Hệ thống hoạt động dựa trên kiến trúc đa luồng, bao gồm các
 
 - **Xử lý Bất đồng bộ**: Sử dụng luồng riêng để xử lý tác vụ, đảm bảo video mượt mà.
 - **Lưu trữ Tối ưu**: Lưu ảnh và video vào các thư mục `alerts`, `manual_captures`, `videos`.
-- **Tùy chỉnh Linh hoạt**: Điều chỉnh ngưỡng chuyển động và độ tương đồng theo nhu cầu.
+- - **Tùy chỉnh Linh hoạt**: Điều chỉnh ngưỡng chuyển động và độ tương đồng theo nhu cầu.
 
 ## 🔧 Công nghệ Sử dụng
 
@@ -76,25 +94,30 @@ cd MotionIdentitySurveillance
 python -m venv venv
 source venv/bin/activate  # Trên Windows: venv\Scripts\activate
 ```
-
+# Dự án: Phát hiện chuyển động và Nhận diện khuôn mặt
+## Cấu trúc thư mục
+```bash
+motion_detection/
+│── .venv/                        # Môi trường ảo chứa các thư viện cần thiết
+│── alerts/                       # Lưu trữ các cảnh báo khi phát hiện chuyển động hoặc khuôn mặt
+│── faces/                        # Lưu dữ liệu khuôn mặt đã nhận diện và embeddings
+│── manual_captures/              # Chứa hình ảnh hoặc video được chụp/tải lên thủ công
+│── videos/                       # Thư mục chứa video được ghi lại từ camera giám sát
+│── create_embedding.py           # Tạo embeddings từ hình ảnh khuôn mặt để phục vụ nhận diện
+│── ds_model_facenet512_...       # Mô hình nhận diện khuôn mặt dựa trên FaceNet512
+│── embeddings.pkl                 # Tệp lưu embeddings của khuôn mặt đã được nhận diện
+│── main.py                        # File chính, xử lý phát hiện chuyển động và nhận diện khuôn mặt
+│── run_face.py                    # Chạy module nhận diện khuôn mặt riêng biệt
+│── telegram_bot.py                # Gửi thông báo cảnh báo qua Telegram khi phát hiện bất thường
+│── yolov8s.pt                     # Mô hình YOLOv8s được dùng để phát hiện chuyển động
+│── External Libraries/            # Thư viện ngoài được sử dụng trong project
+│── Scratches and Consoles/        # Ghi chú và script thử nghiệm
+```
 #### 📚 Cài đặt Thư viện
 
 ```bash
 pip install -r requirements.txt
 ```
-
-**Lưu ý**: Tạo file `requirements.txt` với nội dung:
-
-```text
-opencv-python
-torch
-numpy
-telebot
-requests
-ultralytics
-deepface
-```
-
 #### ⚡ Cấu hình Hệ thống
 
 1. Tạo bot Telegram qua [BotFather](https://t.me/BotFather) để lấy `TELEGRAM_BOT_TOKEN`.
@@ -168,6 +191,11 @@ with open("embeddings.pkl", "wb") as f:
     pickle.dump(embeddings, f)
 print(f"Đã thêm {identity} vào cơ sở dữ liệu embeddings.")
 ```
+## 📰 Poster
+<p align="center">
+  <img src="https://github.com/nguyenducduy2612/Nhan_dien_KM_CD/blob/main/images/Poster_Nhom4_Aiot.png?raw=true" 
+       alt="System Architecture" width="800"/>
+</p>
 
 ## 📚 Tài liệu Hỗ trợ
 
@@ -187,5 +215,3 @@ Xem chi tiết tại:
 **Phát triển với 💻 bởi AIoTLab, Đại học Đại Nam**
 
 🌐 [Website](https://aiotlab-dnu.com) • 🔗 [GitHub](https://github.com/AIoTLab-DNU) • 📩 [Liên hệ](mailto\:contact@aiotlab-dnu.com)
-
-
